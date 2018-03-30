@@ -1,31 +1,24 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/marsfarm-app.html",
+  "shell": "src/start-polymer3.js",
   "fragments": [
-    "src/marsfarm-view1.html",
-    "src/marsfarm-view404.html"
+    "src/lazy-element.js"
   ],
   "sources": [
-    "images/**/*",
-    "src/**/*"
+   "src/start-polymer3.js",
+   "manifest/**",
+   "package.json"
   ],
   "extraDependencies": [
-    "bower_components/webcomponentsjs/*.js",
-    "!bower_components/webcomponentsjs/gulpfile.js",
-    "manifest.json"
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/**"
   ],
-  "lint": {
-    "rules": ["polymer-2"]
-  },
   "builds": [
-    {
-      "preset": "es5-bundled"
-    },
-    {
-      "preset": "es6-bundled"
-    },
-    {
-      "preset": "es6-unbundled"
+    { 
+      "preset": "es6-unbundled",
+      "addServiceWorker": true
     }
-  ]
+  ],
+  "moduleResolution": "node",
+  "npm": true
 }

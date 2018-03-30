@@ -1,46 +1,43 @@
-# Polymer App Toolbox - Starter Kit
+# Start Polymer 3.0 
 
-### Setup
+A simple Polymer 3.0 demo app. See it deployed at [start-polymer3.firebaseapp.com](https://start-polymer3.firebaseapp.com).
 
-First, you need `npm` and `bower` installed.
+Notes: 
+* Please use the latest version of Chrome or Safari to view the app. It uses native [dynamic imports](https://developers.google.com/web/updates/2017/11/dynamic-import).
+* The `polymer build` command is still in progress, and won't handle dynamic imports.
+
+* [Install the Polymer CLI and its prerequisites](#install)
+* [Clone this project and serve it locally](#clone)
+
+<a name="install"></a>
+
+## Install the Polymer CLI and its prerequisites
+
+Before you can serve this project, you will need to install the Polymer CLI
+and its prerequisites.
+
+**Prerequisites:**
+
+* [Git](https://git-scm.com/download/)
+* [Node.js](https://nodejs.org/en/)
+* [npm](https://www.npmjs.com/)
+* [Yarn](https://yarnpkg.com/en/)
+
+When you've installed the prerequisites, run the following command to install the Polymer CLI globally:
 
 ```
-npm install
-bower install
+npm install -g polymer-cli@next
 ```
 
-### Start the development server
+<a name="clone"></a>
 
-This command serves the app at `http://127.0.0.1:8081` and provides basic URL
-routing for the app:
+## Clone this project and serve it locally 
 
-    polymer serve
+When you've installed the Polymer CLI and its prerequisites, run the following commands to clone and serve the app:
 
-### Preview the build
-
-This command serves your app. Replace `build-folder-name` with the folder name of the build you want to serve.
-
-    polymer serve build/build-folder-name/
-
-### Run tests
-
-This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
-against the browsers currently installed on your machine:
-
-    polymer test
-
-If running Windows you will need to set the following environment variables:
-
-- LAUNCHPAD_BROWSERS
-- LAUNCHPAD_CHROME
-
-Read More here [daffl/launchpad](https://github.com/daffl/launchpad#environment-variables-impacting-local-browsers-detection)
-
-### Adding a new view
-
-You can extend the app by adding more views that will be demand-loaded
-e.g. based on the route, or to progressively render non-critical sections of the
-application. Each new demand-loaded fragment should be added to the list of
-`fragments` in the included `polymer.json` file. This will ensure those
-components and their dependencies are added to the list of pre-cached components
-and will be included in the build.
+```
+npm install -g polymer-cli@next
+git clone https://github.com/katejeffreys/start-polymer3.git
+cd start-polymer3
+yarn install --flat
+polymer serve --open --npm --module-resolution=node
