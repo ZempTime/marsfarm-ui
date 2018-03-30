@@ -1,0 +1,23 @@
+<link rel="import" href="./marsfarm-redux-store.html">
+<script>
+/** 
+	* Each domain concept will get it's own mixin, so we easily compose
+	* all the various data a given component in the app might need.
+	*/
+
+	ProductMixin = Parent => class TemperatureMixin extends ReduxMixin(Parent) {
+		static get properties() {
+			return {
+			};
+		}
+		static get actions() {
+			return {
+				getTemperatures() {
+					return {
+						type: 'GET_TEMPERATURES',
+					}
+				}
+			};
+		}
+	};
+</script>

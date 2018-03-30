@@ -1,0 +1,25 @@
+<script>
+	const dataService = store => next => action => {
+		/*
+		Pass all actions through by default
+		*/
+		next(action)
+		switch (action.type) {
+			case 'GET_PRODUCT_BY_ID':
+				fetch('http://localhost:7800/graphql?query={name}')
+					.then((resp) => resp.json())
+					.then(function (dataResults) {
+						let data = dataResults.data;
+						next({
+							type: 'GET_PRODUCT_BY_ID_RECIVED',
+							data
+						})
+					});
+				break
+			default:
+				break
+		}
+	};
+
+// export default dataService
+</script>

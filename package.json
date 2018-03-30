@@ -4,7 +4,8 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.0",
-    "eslint-plugin-html": "^2.0.0"
+    "eslint-plugin-html": "^2.0.0",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "lint": "npm run lint:javascript && polymer lint",
