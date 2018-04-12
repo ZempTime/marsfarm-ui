@@ -11,11 +11,13 @@
 // Import statements in Polymer 3.0 can now use package names.
 // polymer-element.js now exports PolymerElement instead of Element,
 // so no need to change the symbol. 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { LitElement, html } from '@polymer/lit-element/lit-element.js';
+import '@polymer/app-layout/app-header-layout/app-header-layout.js';
 import '@polymer/polymer/lib/elements/dom-if.js';
 import '@polymer/paper-checkbox/paper-checkbox.js';
 
-class StartPolymer3 extends PolymerElement {
+class MarsfarmApp extends LitElement {
   static get properties () {
     return {
       message: {
@@ -61,9 +63,7 @@ class StartPolymer3 extends PolymerElement {
     }
   }
 
-  static get template () {
-    // Template getter must return an instance of HTMLTemplateElement.
-    // The html helper function makes this easy.
+  render() {
     return html`
       <h1>Start Polymer 3.0</h1>
       <p>[[message]]</p>
@@ -74,7 +74,8 @@ class StartPolymer3 extends PolymerElement {
       </template>
     `;
   }
+
 }
 
 // Register the element with the browser.
-customElements.define('start-polymer3', StartPolymer3);
+customElements.define('marsfarm-app', MarsfarmApp);
