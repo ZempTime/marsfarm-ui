@@ -1,15 +1,13 @@
-# Start Polymer 3.0 
+# Notes for the Future 
 
-A simple Polymer 3.0 demo app. See it deployed at [start-polymer3.firebaseapp.com](https://start-polymer3.firebaseapp.com).
-
-Notes: 
-* Please use the latest version of Chrome or Safari to view the app. It uses native [dynamic imports](https://developers.google.com/web/updates/2017/11/dynamic-import).
-* The `polymer build` command is still in progress, and won't handle dynamic imports.
-
-* [Install the Polymer CLI and its prerequisites](#install)
-* [Clone this project and serve it locally](#clone)
-
-<a name="install"></a>
+* Not adding Redux... yet!
+* When this shift happens going to take a duck approach. Possible folder structure:
+  * component
+  * data service
+  * reducers
+  * actions
+  * action creators
+  * redux behavior/mixin
 
 ## Install the Polymer CLI and its prerequisites
 
@@ -27,17 +25,3 @@ When you've installed the prerequisites, run the following command to install th
 
 ```
 npm install -g polymer-cli@next
-```
-
-<a name="clone"></a>
-
-## Clone this project and serve it locally 
-
-When you've installed the Polymer CLI and its prerequisites, run the following commands to clone and serve the app:
-
-```
-npm install -g polymer-cli@next
-git clone https://github.com/katejeffreys/start-polymer3.git
-cd start-polymer3
-yarn install --flat
-polymer serve --open --npm --module-resolution=node
