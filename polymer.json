@@ -14,11 +14,15 @@
   ],
   "builds": [ 
     { 
-      "bundle": {
-        "inlineScripts": false
-      }
-    }
-   ],
+      "name": "bundled-amd", 
+      "bundle": { 
+        "inlineScripts": false 
+      }, 
+      "js": { 
+        "transformModulesToAmd": true 
+      } 
+    } 
+  ],
   "moduleResolution": "node",
   "npm": true
 }
