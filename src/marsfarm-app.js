@@ -1,84 +1,89 @@
-/**
- * @license
- * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- */
-
-// Import statements in Polymer 3.0 can now use package names.
-// polymer-element.js now exports PolymerElement instead of Element,
-// so no need to change the symbol.
-import { PolymerElement } from "@polymer/polymer/polymer-element.js";
-import { LitElement, html } from "@polymer/lit-element/lit-element.js";
-import "@polymer/app-layout/app-header-layout/app-header-layout.js";
-import "@polymer/polymer/lib/elements/dom-if.js";
-import "@polymer/paper-checkbox/paper-checkbox.js";
+import { PolymerElement } from "../node_modules/@polymer/polymer/polymer-element.js";
+import {
+  LitElement,
+  html
+} from "../node_modules/@polymer/lit-element/lit-element.js";
+import "../node_modules/@polymer/app-layout/app-header-layout/app-header-layout.js";
+import "../node_modules/@polymer/app-layout/app-header/app-header.js";
+import "../node_modules/@polymer/app-layout/app-drawer-layout/app-drawer-layout.js";
+import "../node_modules/@polymer/app-layout/app-drawer/app-drawer.js";
+import "../node_modules/@polymer/app-layout/app-scroll-effects/app-scroll-effects.js";
+import "../node_modules/@polymer/iron-icons/iron-icons.js";
+import "../node_modules/@polymer/paper-icon-button/paper-icon-button.js";
+import "../node_modules/@polymer/paper-item/paper-icon-item.js";
 
 class MarsfarmApp extends LitElement {
-  static get properties() {
-    return {
-      message: {
-        type: String,
-        value: ""
-      },
-      pie: {
-        type: Boolean,
-        value: false,
-        observer: "togglePie"
-      },
-      loadComplete: {
-        type: Boolean,
-        value: false
-      }
-    };
-  }
-
   constructor() {
-    // If you override the constructor, always call the
-    // superconstructor first.
     super();
-    this.message = "Hello World! I'm a Polymer element :)";
-    this.onPieChanged = this.onPieChanged.bind(this);
+    this.toggleDrawerLayout = this.toggleDrawerLayout.bind(this);
   }
 
-  onPieChanged(e) {
-    this.pie = e.detail.value;
-  }
+  toggleDrawerLayout() {
+    const drawerLayout = this.shadowRoot.querySelector("app-drawer-layout");
 
-  togglePie() {
-    if (this.pie && !this.loadComplete) {
-      // See https://developers.google.com/web/updates/2017/11/dynamic-import
-      import("./lazy-element.js")
-        .then(LazyElement => {
-          console.log("LazyElement loaded");
-        })
-        .catch(reason => {
-          console.log("LazyElement failed to load", reason);
-        });
-      this.loadComplete = true;
+    if (drawerLayout.forceNarrow || !drawerLayout.narrow) {
+      drawerLayout.forceNarrow = !drawerLayout.forceNarrow;
+    } else {
+      drawerLayout.drawer.toggle();
     }
   }
 
-  render({ pie, message }) {
+  render() {
     return html`
-      <h1>Start Polymer 3.0</h1>
-      <p>${message}</p>
-      <paper-checkbox 
-        checked="${pie}"
-        on-checked-changed=${this.onPieChanged}
-        >I like pie.</paper-checkbox>
-
-      ${
-        this.pie
-          ? html`
-            <lazy-element><p>lazy loading...</p></lazy-element>
-            <p>hello this is if</i>
-            `
-          : html`<p>not checked<p>`
+    <style>
+      app-header {
+        background-color: #4285f4;
+        color: #fff;
       }
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: #fff;
+      }
+      app-drawer-layout {
+        --app-drawer-layout-content-transition: margin 0.2s;
+      }
+      app-drawer {
+        --app-drawer-content-container: {
+          background-color: #eee;
+        }
+      }
+      .drawer-content {
+        margin-top: 80px;
+        height: calc(100% - 80px);
+        overflow: auto;
+      }
+    </style>
+
+    <app-header-layout>
+      <app-header fixed effects="waterfall" slot="header">
+        <app-toolbar>
+          <paper-icon-button
+            icon="menu"
+            on-click=${this.toggleDrawerLayout}
+          ></paper-icon-button>
+        </app-toolbar>
+      </app-header>
+
+      <app-drawer-layout>
+
+        <app-drawer slot="drawer">
+          <div class="drawer-content">
+            <paper-icon-item>
+              <iron-icon icon="account-box" slot="item-icon"></iron-icon> <span>Log In</span>
+            </paper-icon-item>
+            <paper-icon-item>
+              <iron-icon icon="trending-up" slot="item-icon"></iron-icon> <span>Current Status</span>
+            </paper-icon-item>
+            <paper-icon-item>
+              <iron-icon icon="add-box" slot="item-icon"></iron-icon> <span>Data Entry</span>
+            </paper-icon-item>
+          </div>
+        </app-drawer>
+
+        <h1>Sample Content</h1>
+
+      </app-drawer-layout>
+
+    </app-header-layout>
     `;
   }
 }

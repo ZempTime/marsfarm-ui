@@ -10,6 +10,9 @@
     "@polymer/lit-element": "^0.2.2",
     "@polymer/paper-checkbox": "^3.0.0-pre.12",
     "@polymer/polymer": "^3.0.0-pre.12",
+    "@polymer/paper-icon-button": "^3.0.0-pre.12",
+    "@polymer/paper-item": "^3.0.0-pre.12",
+    "@polymer/iron-icons": "^3.0.0-pre.12",
     "lit-html": "^0.9.0"
   },
   "devDependencies": {
