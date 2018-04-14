@@ -14,13 +14,9 @@
   ],
   "builds": [ 
     { 
-      "name": "bundled-amd",
       "bundle": {
         "inlineScripts": false
-      },
-      "js": {
-        "transformModulesToAmd": true
-       }
+      }
     }
    ],
   "moduleResolution": "node",
