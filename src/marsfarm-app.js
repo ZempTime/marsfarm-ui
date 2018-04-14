@@ -8,8 +8,20 @@ import "@polymer/app-layout/app-scroll-effects/app-scroll-effects.js";
 import "@polymer/iron-icons/iron-icons.js";
 import "@polymer/paper-icon-button/paper-icon-button.js";
 import "@polymer/paper-item/paper-icon-item.js";
+import "./pages/marsfarm-page-current.js";
 
 class MarsfarmApp extends LitElement {
+  static get properties() {
+    return {
+      page: {
+        type: String,
+        notify: true,
+        reflectToAttribute: true,
+        observer: "pageChanged"
+      }
+    };
+  }
+
   constructor() {
     super();
     this.toggleDrawerLayout = this.toggleDrawerLayout.bind(this);
@@ -76,7 +88,7 @@ class MarsfarmApp extends LitElement {
           </div>
         </app-drawer>
 
-        <h1>Sample Content</h1>
+        <marsfarm-page-current></marsfarm-page-current>
 
       </app-drawer-layout>
 
