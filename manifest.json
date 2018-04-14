@@ -1,9 +1,9 @@
 {
-  "description": "Template Polymer 3.0 App",
+  "description": "Food computer UI to help collect information to for farms on mars.",
   "manifest_version": 1,
-  "name": "Start Polymer 3.0",
-  "short_name": "StartP3",
-  "version": "0.1",
+  "name": "Marsfarm UI",
+  "short_name": "Marsfarm",
+  "version": "0.2",
   "start_url": ".",
   "display": "fullscreen",
   "background_color": "#fff",

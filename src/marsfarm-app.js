@@ -1,16 +1,13 @@
-import { PolymerElement } from "../node_modules/@polymer/polymer/polymer-element.js";
-import {
-  LitElement,
-  html
-} from "../node_modules/@polymer/lit-element/lit-element.js";
-import "../node_modules/@polymer/app-layout/app-header-layout/app-header-layout.js";
-import "../node_modules/@polymer/app-layout/app-header/app-header.js";
-import "../node_modules/@polymer/app-layout/app-drawer-layout/app-drawer-layout.js";
-import "../node_modules/@polymer/app-layout/app-drawer/app-drawer.js";
-import "../node_modules/@polymer/app-layout/app-scroll-effects/app-scroll-effects.js";
-import "../node_modules/@polymer/iron-icons/iron-icons.js";
-import "../node_modules/@polymer/paper-icon-button/paper-icon-button.js";
-import "../node_modules/@polymer/paper-item/paper-icon-item.js";
+import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import { LitElement, html } from "@polymer/lit-element/lit-element.js";
+import "@polymer/app-layout/app-header-layout/app-header-layout.js";
+import "@polymer/app-layout/app-header/app-header.js";
+import "@polymer/app-layout/app-drawer-layout/app-drawer-layout.js";
+import "@polymer/app-layout/app-drawer/app-drawer.js";
+import "@polymer/app-layout/app-scroll-effects/app-scroll-effects.js";
+import "@polymer/iron-icons/iron-icons.js";
+import "@polymer/paper-icon-button/paper-icon-button.js";
+import "@polymer/paper-item/paper-icon-item.js";
 
 class MarsfarmApp extends LitElement {
   constructor() {

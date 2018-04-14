@@ -1,9 +1,9 @@
 {
-  "name": "start-polymer3",
+  "name": "marsfarm-ui",
   "version": "1.0.0",
   "main": "marsfarm-app.js",
   "repository": "https://github.com/zemptime/marsfarm-ui.git",
-  "author": "The Polymer Project Authors",
+  "author": "Chris Zempel",
   "license": "BSD-3-Clause",
   "dependencies": {
     "@polymer/app-layout": "^3.0.0-pre.12",

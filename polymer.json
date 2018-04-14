@@ -2,7 +2,6 @@
   "entrypoint": "index.html",
   "shell": "src/marsfarm-app.js",
   "fragments": [
-    "src/lazy-element.js"
   ],
   "sources": [
    "src/marsfarm-app.js",
@@ -13,12 +12,17 @@
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/**"
   ],
-  "builds": [
+  "builds": [ 
     { 
-      "preset": "es5-bundled",
-      "addServiceWorker": true
+      "name": "bundled-amd",
+      "bundle": {
+        "inlineScripts": false
+      },
+      "js": {
+        "transformModulesToAmd": true
+       }
     }
-  ],
+   ],
   "moduleResolution": "node",
   "npm": true
 }
