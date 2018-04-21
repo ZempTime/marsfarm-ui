@@ -15,7 +15,7 @@
     "@polymer/polymer": "^3.0.0-pre.12",
     "d3": "^5.0.0",
     "lit-html": "^0.9.0",
-    "polymer-cli": "^1.7.0-pre.10"
+    "polymer-cli": "^1.7.0-pre.13"
   },
   "devDependencies": {
     "eslint-config-prettier": "^2.9.0",
