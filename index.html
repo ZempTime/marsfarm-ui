@@ -17,7 +17,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="icon" href="manifest/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" async></script>
-  <script src="./node_modules/redux/dist/redux.js"></script>
   <script src="./src/marsfarm-app.js" type="module" async></script>
   <title>Marsfarm UI</title>
   <style>
@@ -40,5 +39,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <h1>Marsfarm UI Starting...</h1>
     <p>Could not render the custom element. Check that JavaScript is enabled.</p>
   </marsfarm-app>
+
+  <script>
+    // TODO: Use production redux bundle (either dist or uglified) later.
+    // Will either need to integrate loose-envify into build process or
+    // figure out some other way.
+    window.process = window.process || {};
+    process.env = process.env || {};
+    process.env.NODE_ENV = "development";
+  </script>
 </body>
 </html>
