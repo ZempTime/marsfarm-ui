@@ -1,15 +1,41 @@
 import { LitElement, html } from "@polymer/lit-element/lit-element.js";
+import ReduxMixin from "../mixins/marsfarm-redux-store.js";
 import * as d3 from "d3";
 
-class MarsfarmPageCurrent extends LitElement {
-  ready() {
-    super.ready();
-    this.drawChart();
+class MarsfarmPageCurrent extends ReduxMixin(LitElement) {
+  static get properties() {
+    return {
+      message: {
+        type: String,
+        statePath: "message"
+      },
+      temperatures: {
+        type: Array,
+        statePath: "temperatures"
+      }
+    };
+  }
+  static get actions() {
+    return {
+      getTemperatures() {
+        return {
+          type: "GET_TEMPERATURES"
+        };
+      }
+    };
   }
 
-  drawChart() {}
+  constructor() {
+    super();
+    this.dispatch("getTemperatures");
+    this.test = "alsdkgalskgjldksag";
+  }
 
-  render() {
+  drawChart() {
+    console.log("drawing chart");
+  }
+
+  render({ temperatures, message, test }) {
     return html`
       <style> 
         .content {
@@ -21,6 +47,20 @@ class MarsfarmPageCurrent extends LitElement {
       </style>
 
       <div class="content">
+        <h2>message ${message}</h2>
+        <h2>test ${test}</h2>
+
+        <ul>
+          ${(temperatures || []).map(
+            temperature => html`
+          <li>
+            Year: ${temperature.Year} -
+            Mean: ${temperature.Mean} -
+            Source: ${temperature.Source}
+          </li>
+          `
+          )}
+        </ul>
         <h1>Current Status</h1>
         <svg width="960" height="500"></svg>
       </div>
