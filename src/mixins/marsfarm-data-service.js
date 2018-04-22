@@ -5,7 +5,7 @@ const dataService = store => next => action => {
   next(action);
   switch (action.type) {
     case "GET_TEMPERATURES":
-      fetch("http://localhost:8081/src/pages/temperatures.json")
+      fetch("src/pages/temperatures.json")
         .then(resp => resp.json())
         .then(data => {
           next({
