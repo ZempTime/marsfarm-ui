@@ -1,27 +1,28 @@
-# Notes for the Future 
+# Directory Structure
 
-* Not adding Redux... yet!
-* When this shift happens going to take a duck approach. Possible folder structure:
+Longer-term goals:
+* Adopt the prpl pattern
+  * App-shell
+  * Dynamically extending/rebuilding reduxers/actions/data services along with web components
+* Full-fledged PWA
+* Ability to serve as intermediary for intelligent data sync
+
+
+Redux-specific:
+* In the vein of [ducks](https://github.com/alexnm/re-ducks), adopting an approach modified for polymer 3:
   * component
   * data service
   * reducers
   * actions
   * action creators
   * redux behavior/mixin
+  * utils
 
-## Install the Polymer CLI and its prerequisites
+However, shorter-term, I don't know what my domain structure will really be. I'd like to see what emerges before deciding.
 
-Before you can serve this project, you will need to install the Polymer CLI
-and its prerequisites.
-
-**Prerequisites:**
-
-* [Git](https://git-scm.com/download/)
-* [Node.js](https://nodejs.org/en/)
-* [npm](https://www.npmjs.com/)
-* [Yarn](https://yarnpkg.com/en/)
-
-When you've installed the prerequisites, run the following command to install the Polymer CLI globally:
-
-```
-npm install -g polymer-cli@next
+Shorter-term directory structure approach:
+* **Pages**: pages one can navigate to. These will form the basis of the app-shell strategy later
+* **Mixins**: generally this is what will be reworked into the ducks-approach later.
+  * data-service
+  * specific domain element mixins (ex: temperature-mixin)
+* **Components**: elements that the pages pull in
