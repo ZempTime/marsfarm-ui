@@ -16,6 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="theme-color" content="#fff">
   <link rel="icon" href="manifest/favicon.ico">
   <link rel="manifest" href="manifest.json">
+  <link rel ="stylesheet" type ="text/css" href="loader.css" />
   <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" async></script>
   <script src="./src/marsfarm-app.js" type="module" async></script>
   <title>Marsfarm UI</title>
@@ -28,16 +29,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </style>
 </head>
 <body>
-  <marsfarm-app>
+  <marsfarm-app> 
     <!-- 
-      Placeholder Content: This content will be replaced when <start-polymer3>
+      Placeholder Content: This content will be replaced when <marsfarm-app>
       is rendered.
       
       Placeholder content improves perceived render time and makes sure
       users with JavaScript disabled will see something helpful.
     -->
-    <h1>Marsfarm UI Starting...</h1>
-    <p>Could not render the custom element. Check that JavaScript is enabled.</p>
+    <div class="loader-container">
+      <div class="loader">Loading...</div>
+      <h1 class="gradient-text hover-underline-animation">Booting Marsfarm UI...</h1>
+    </div>
   </marsfarm-app>
 
   <script>
