@@ -6,7 +6,8 @@
   "sources": [
    "src/marsfarm-app.js",
    "manifest/**",
-   "package.json"
+   "package.json",
+   "src/styles/loader.css"
   ],
   "extraDependencies": [
     "manifest.json",
